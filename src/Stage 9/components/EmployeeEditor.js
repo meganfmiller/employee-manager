@@ -9,6 +9,9 @@ class EmployeeEditor extends Component {
       originalEmployee: null,
       notModified: true
     }
+
+    this.save = this.save.bind(this);
+    this.cancel = this.cancel.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -34,9 +37,9 @@ class EmployeeEditor extends Component {
   }
 
   save() {
-    this.state.employee.updateName(this.state.employee.name);
-    this.state.employee.updatePhone(this.state.employee.phone);
-    this.state.employee.updateTitle(this.state.employee.title);
+    this.state.originalEmployee.updateName(this.state.employee.name);
+    this.state.originalEmployee.updatePhone(this.state.employee.phone);
+    this.state.originalEmployee.updateTitle(this.state.employee.title);
     this.setState({
       notModified: true
     })
@@ -46,7 +49,8 @@ class EmployeeEditor extends Component {
   cancel() {
     var employeeCopy = Object.assign({}, this.state.originalEmployee);
     this.setState({
-      employee: employeeCopy
+      employee: employeeCopy,
+      notModified: true
     })
   }
   

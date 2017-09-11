@@ -35,7 +35,7 @@ class App extends Component {
         <Header id='app'/>
         <div className="main-container">
           <EmployeeList id='main-container' employees={ this.state.employees } selectEmployee={ this.selectEmployee }/>
-          <EmployeeEditor id='main-container' selected={ this.state.selectedEmployees } refreshList={ this.refreshList }/>
+          <EmployeeEditor id='main-container' selected={ this.state.selectedEmployees } refreshList={ this.refresh }/>
         </div>
       </div>
     )
